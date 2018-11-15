@@ -52,11 +52,11 @@ namespace Xamarin.Forms.Platform.Android
 						var item = child as BottomNavigationItemView;
 						if (item != null)
 						{
-#if __ANDROID90__
-							item.SetShifting(enableItemShiftMode);
-#else
-							item.SetShiftingMode(enableItemShiftMode);
-#endif
+//#if __ANDROID90__
+//							item.SetShifting(enableItemShiftMode);
+//#else
+//							item.SetShiftingMode(enableItemShiftMode);
+//#endif
 							item.SetChecked(item.ItemData.IsChecked);
 						}
 
