@@ -13,7 +13,7 @@ using LP = Android.Views.ViewGroup.LayoutParams;
 
 namespace Xamarin.Forms.Platform.Android
 {
-	public class ShellFlyoutTemplatedContentRenderer : Java.Lang.Object, IShellFlyoutContentRenderer, AppBarLayout.IOnOffsetChangedListener
+	public class ShellFlyoutTemplatedContentRenderer : Java.Lang.Object, IShellFlyoutContentRenderer/*, AppBarLayout.IOnOffsetChangedListener*/
 	{
 		#region IShellFlyoutContentRenderer
 
@@ -43,7 +43,7 @@ namespace Xamarin.Forms.Platform.Android
 
 			_rootView = coordinator;
 
-			appBar.AddOnOffsetChangedListener(this);
+			//appBar.AddOnOffsetChangedListener(this);
 
 			int actionBarHeight = (int)context.ToPixels(56);
 
