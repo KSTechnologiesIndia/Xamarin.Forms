@@ -37,7 +37,7 @@ namespace Xamarin.Forms.Platform.Android
 						bottomNavigationView.LabelVisibilityMode = ALabelVisibilityMode.LabelVisibilityAuto;
 					else
 						bottomNavigationView.LabelVisibilityMode = ALabelVisibilityMode.LabelVisibilityLabeled;
-#elif __ANDROID81__
+#else
 					var shiftMode = menuView.Class.GetDeclaredField("mShiftingMode");
 					shiftMode.Accessible = true;
 					shiftMode.SetBoolean(menuView, enableShiftMode);
@@ -52,7 +52,7 @@ namespace Xamarin.Forms.Platform.Android
 						{
 #if __ANDROID90__
 							item.SetShifting(enableItemShiftMode);
-#elif __ANDROID81__
+#else
 							item.SetShiftingMode(enableItemShiftMode);
 #endif
 							item.SetChecked(item.ItemData.IsChecked);
