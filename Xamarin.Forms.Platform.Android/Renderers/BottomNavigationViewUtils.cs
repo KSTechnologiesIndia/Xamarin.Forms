@@ -12,7 +12,8 @@ using Android.Widget;
 using Android.Support.Design.Widget;
 using Android.Support.Design.Internal;
 
-#if __ANDROID90__
+#if __ANDROID81__
+#else
 using ALabelVisibilityMode = Android.Support.Design.BottomNavigation.LabelVisibilityMode;
 #endif
 
