@@ -32,17 +32,17 @@ namespace Xamarin.Forms.Platform.Android
 						return;
 					}
 
-#if __ANDROID90__
-					if (enableShiftMode)
-						bottomNavigationView.LabelVisibilityMode = ALabelVisibilityMode.LabelVisibilityAuto;
-					else
-						bottomNavigationView.LabelVisibilityMode = ALabelVisibilityMode.LabelVisibilityLabeled;
-#else
+#if __ANDROID81__
 					var shiftMode = menuView.Class.GetDeclaredField("mShiftingMode");
 					shiftMode.Accessible = true;
 					shiftMode.SetBoolean(menuView, enableShiftMode);
 					shiftMode.Accessible = false;
 					shiftMode.Dispose();
+#else
+					if (enableShiftMode)
+						bottomNavigationView.LabelVisibilityMode = ALabelVisibilityMode.LabelVisibilityAuto;
+					else
+						bottomNavigationView.LabelVisibilityMode = ALabelVisibilityMode.LabelVisibilityLabeled;
 #endif
 					for (int i = 0; i < menuView.ChildCount; i++)
 					{
@@ -50,10 +50,10 @@ namespace Xamarin.Forms.Platform.Android
 						var item = child as BottomNavigationItemView;
 						if (item != null)
 						{
-#if __ANDROID90__
-							item.SetShifting(enableItemShiftMode);
-#else
+#if __ANDROID81__
 							item.SetShiftingMode(enableItemShiftMode);
+#else
+							item.SetShifting(enableItemShiftMode);
 #endif
 							item.SetChecked(item.ItemData.IsChecked);
 						}
